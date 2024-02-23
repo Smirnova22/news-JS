@@ -2,14 +2,13 @@
     "plugins": ["prettier", "import", "@typescript-eslint"],
     "extends": [
         "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended",
-        "prettier"
+        "plugin:prettier/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 2020,
         "sourceType": "module",
-        "project": "./tsconfig.json"
+        "project": "./smirnova22-jsfe2023q4/news-api/tsconfig.json"
     },
     "env": {
         "es6": true,
