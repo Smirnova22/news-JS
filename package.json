@@ -1,5 +1,5 @@
 {
-    "name": "NewsJS",
+    "name": "news-api",
     "version": "1.0.0",
     "description": "",
     "main": "webpack.base.config.js",
@@ -7,7 +7,9 @@
     "scripts": {
         "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
         "build": "webpack --config ./webpack.config.js --env mode=prod",
-        "lint": "eslint . --ext .ts"
+        "lint": "eslint . --ext .ts",
+        // "lint": "npx eslint ./src",
+        "format": "npx eslint ./src --fix"
     },
     "repository": {
         "type": "git",
