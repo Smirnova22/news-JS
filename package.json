@@ -8,7 +8,6 @@
         "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
         "build": "webpack --config ./webpack.config.js --env mode=prod",
         "lint": "eslint . --ext .ts",
-        // "lint": "npx eslint ./src",
         "format": "npx eslint ./src --fix"
     },
     "repository": {
@@ -28,6 +27,7 @@
         "css-loader": "^6.10.0",
         "dotenv-webpack": "^8.0.1",
         "eslint": "^8.56.0",
+        "eslint-config": "^0.3.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-import": "^2.29.1",
         "eslint-plugin-prettier": "^5.1.3",
