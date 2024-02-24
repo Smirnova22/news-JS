@@ -1,13 +1,11 @@
 interface EnvironmentVariables {
     API_URL: string;
-    API_KEY?: string;
+    API_KEY: string;
   }
   
   declare const process: {
     env: EnvironmentVariables;
   };
-
-  
 
 
   import Loader from './loader';

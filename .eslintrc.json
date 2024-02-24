@@ -1,6 +1,7 @@
 {
     "plugins": ["prettier", "import", "@typescript-eslint"],
     "extends": [
+        "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:prettier/recommended"
     ],
@@ -20,6 +21,6 @@
         "no-console": 0,
         "class-methods-use-this": "off",
         "prettier/prettier": "error",
-        "@typescript-eslint/no-explicit-any": "error"
+        "@typescript-eslint/no-explicit-any": 2
     }
 }

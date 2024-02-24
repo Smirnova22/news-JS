@@ -1,8 +1,9 @@
 import AppLoader from './appLoader';
 
 interface Article {
-    title: string;
-    content: string;
+    title?: string;
+    content?: string;
+
 }
 
 type Data = Article[];
