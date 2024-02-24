@@ -3,10 +3,10 @@ import { merge } from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import DotenvWebpackPlugin from 'dotenv-webpack';
-import { default as test } from 'node:test';
+// import { default as test } from 'node:test';
 
 const baseConfig = {
-    entry: path.resolve(__dirname, './src/index.js'),
+    entry: path.resolve('./src/index.js'),
     mode: 'development',
     module: {
         rules: [
@@ -22,7 +22,7 @@ const baseConfig = {
     },
     output: {
         filename: 'index.js',
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve('./dist'),
     },
     devServer: {
         contentBase: './dist',
@@ -31,16 +31,18 @@ const baseConfig = {
     plugins: [
         new DotenvWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/index.html'),
+            template: path.resolve('./src/index.html'),
             filename: 'index.html',
         }),
         new CleanWebpackPlugin(),
     ],
 };
 
-export default ({ mode }) => {
+export default async ({ mode }) => {
     const isProductionMode = mode === 'prod';
-    const envConfig = isProductionMode ? require('./webpack.prod.config') : require('./webpack.dev.config');
+    const envConfigModule = isProductionMode ? await import('./webpack.prod.config.js') : await import('./webpack.dev.config.js');
+    const envConfig = await envConfigModule.default;
 
     return merge(baseConfig, envConfig);
 };
+

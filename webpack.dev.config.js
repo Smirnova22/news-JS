@@ -1,9 +1,10 @@
-const path = require('path');
+const path = await import('path');
 
-module.exports = {
+
+export default {
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
-        static: path.resolve(__dirname, './dist'),
+        static: path.resolve('./dist'),
     },
 };
