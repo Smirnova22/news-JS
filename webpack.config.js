@@ -3,14 +3,18 @@ import { merge } from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import DotenvWebpackPlugin from 'dotenv-webpack';
+import EslingPlugin from 'eslint-webpack-plugin';
 // import { default as test } from 'node:test';
 
+
+
+
 const baseConfig = {
-    entry: path.resolve('./src/index.js'),
+    entry: path.resolve('./src/index'),
     mode: 'development',
     module: {
         rules: [
-            { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/ },
+            { test: /\.ts$/i, use: 'ts-loader'},
             {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
@@ -18,7 +22,7 @@ const baseConfig = {
         ],
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js', '.json'],
+        extensions: ['.ts', '.js'],
     },
     output: {
         filename: 'index.js',
@@ -28,6 +32,7 @@ const baseConfig = {
         contentBase: './dist',
         hot: true,
     },
+    
     plugins: [
         new DotenvWebpackPlugin(),
         new HtmlWebpackPlugin({
@@ -35,7 +40,9 @@ const baseConfig = {
             filename: 'index.html',
         }),
         new CleanWebpackPlugin(),
+        new EslingPlugin({ extensions: 'ts'})
     ],
+    
 };
 
 export default async ({ mode }) => {
