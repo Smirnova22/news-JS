@@ -1,5 +1,5 @@
 type LoaderOptions = {
-    [key: string]: string | null | undefined;
+    [key: string]: string | undefined | null;
 };
 
 type RequestOptions = {
