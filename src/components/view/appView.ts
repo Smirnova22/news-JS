@@ -3,40 +3,29 @@ import Sources from './sources/sources';
 
 interface Article {
     title: string;
-    url: string;
-    source: { name: string }; 
-    publishedAt: string;
-    description: string;
+    content: string;
 }
 
 interface Source {
-    id: string;
     name: string;
-    url: string;
-}
-
-interface Data {
-    articles?: Article[];
-    sources?: Source[];
+    id: string;
 }
 
 export class AppView {
-    private news: News;
-    private sources: Sources;
+    news: News;
 
     constructor() {
         this.news = new News();
-        this.sources = new Sources();
     }
 
-    drawNews(data: Data): void {
+    drawNews(data: { articles?: Article[] }): void {
         const values = data?.articles ? data.articles : [];
         this.news.draw(values);
     }
 
-    drawSources(data: Data): void {
+    drawSources(data: { sources?: Source[] }): void {
         const values = data?.sources ? data.sources : [];
-        this.sources.draw(values);
+        Sources.draw(values); // Directly use the Sources class's draw method
     }
 }
 

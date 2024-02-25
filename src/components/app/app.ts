@@ -1,6 +1,12 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
 
+interface Article {
+    title: string;
+    content: string;
+}
+
+type Data = Article[];
 
 class App {
     private controller: AppController;
@@ -14,8 +20,8 @@ class App {
     start(): void {
         document
             .querySelector('.sources')
-            ?.addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));
-        this.controller.getSources((data) => this.view.drawSources(data));
+            ?.addEventListener('click', (e) => this.controller.getNews(e, (data: Data) => this.view.drawNews(data)));
+        this.controller.getSources((data: Data) => this.view.drawSources(data));
     }
 }
 

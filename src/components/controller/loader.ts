@@ -7,14 +7,8 @@ type RequestOptions = {
     options?: LoaderOptions;
 };
 
-interface Article {
-    title: string;
-    content: string;
-}
 
-type Data = Article[];
-
-type Callback = (data: Data) => void;
+type Callback = (data: []) => void;
 
 class Loader {
     private baseLink: string;
